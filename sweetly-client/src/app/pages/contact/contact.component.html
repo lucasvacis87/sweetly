@@ -1,1 +1,14 @@
-<p>contact works!</p>
+<div class="contact-container">
+  <h2>Contacto</h2>
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+    <label>Nombre:</label>
+    <input type="text" formControlName="name">
+    <label>Email:</label>
+    <input type="email" formControlName="email">
+    <label>Mensaje:</label>
+    <textarea formControlName="message"></textarea>
+    <button type="submit" [disabled]="contactForm.invalid">Enviar</button>
+  </form>
+  <div *ngIf="message" class="success">{{ message }}</div>
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+</div>

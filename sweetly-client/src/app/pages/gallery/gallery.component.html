@@ -1,1 +1,11 @@
-<p>gallery works!</p>
+<div *ngIf="loading">Cargando galería...</div>
+<div *ngIf="error">{{ error }}</div>
+<div *ngIf="!loading && !error">
+  <h2>Galería</h2>
+  <div class="gallery">
+    <div *ngFor="let photo of photos" class="gallery-item">
+      <img [src]="photo.url" [alt]="photo.title" width="300">
+      <p>{{ photo.title }}</p>
+    </div>
+  </div>
+</div>

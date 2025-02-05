@@ -1,1 +1,13 @@
-<p>cart works!</p>
+<div>
+  <h2>Carrito de Compras</h2>
+  <div *ngIf="cartItems.length === 0">El carrito está vacío.</div>
+  <ul *ngIf="cartItems.length > 0">
+    <li *ngFor="let item of cartItems">
+      <h4>{{ item.product.name }} (x{{ item.quantity }})</h4>
+      <p>Precio unitario: {{ item.product.price }}</p>
+      <p>Subtotal: {{ (item.product.price * item.quantity) }}</p>
+    </li>
+  </ul>
+  <h3>Total: {{ total }}</h3>
+  <a routerLink="/checkout" class="btn">Finalizar Compra</a>
+</div>
